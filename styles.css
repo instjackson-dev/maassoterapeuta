@@ -103,22 +103,19 @@ button { font: inherit; cursor: pointer; }
   font-size: 19px;
   letter-spacing: -0.01em;
 }
-.brand-mark {
-  width: 34px; height: 34px;
+.brand-logo {
+  width: 42px; height: 42px;
   display: grid; place-items: center;
-  border: 1px solid var(--gold);
-  color: var(--gold);
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 17px;
+  border: 1px solid rgba(200, 164, 90, 0.45);
   border-radius: 50%;
-  position: relative;
+  overflow: hidden;
+  background: rgba(255,255,255,0.92);
+  box-shadow: 0 0 0 4px rgba(200, 164, 90, 0.12);
 }
-.brand-mark::after {
-  content: "";
-  position: absolute; inset: -4px;
-  border: 1px solid rgba(200, 164, 90, 0.25);
-  border-radius: 50%;
+.brand-logo img {
+  width: 130%;
+  height: 130%;
+  object-fit: contain;
 }
 .brand small {
   font-family: var(--mono);
@@ -471,6 +468,113 @@ button { font: inherit; cursor: pointer; }
   max-width: 580px;
 }
 .about-aside strong { color: var(--neon-hi); font-weight: 500; letter-spacing: 0.04em; }
+
+/* ============================================================
+   SPACE
+   ============================================================ */
+.space {
+  background:
+    radial-gradient(circle at 12% 22%, rgba(182,92,255,0.09), transparent 34%),
+    linear-gradient(180deg, #08080a 0%, #101012 100%);
+  color: #fff;
+  padding: 120px 0;
+  border-top: 1px solid var(--line-dark);
+  border-bottom: 1px solid var(--line-dark);
+}
+.space-grid {
+  display: grid;
+  grid-template-columns: minmax(320px, 0.92fr) 1fr;
+  gap: 72px;
+  align-items: center;
+}
+.space-photo {
+  position: relative;
+  min-height: 620px;
+  border: 1px solid var(--line-dark);
+  overflow: hidden;
+  background: #0a0a0c;
+  box-shadow: 0 36px 90px rgba(0,0,0,0.38);
+}
+.space-photo img {
+  width: 100%;
+  height: 100%;
+  min-height: 620px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  filter: saturate(0.9) contrast(1.02);
+}
+.space-photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(8,8,10,0.06) 35%, rgba(8,8,10,0.58) 100%),
+    radial-gradient(circle at 80% 20%, rgba(197,163,87,0.16), transparent 42%);
+  pointer-events: none;
+}
+.space-photo-badge {
+  position: absolute;
+  left: 22px;
+  bottom: 22px;
+  z-index: 1;
+  padding: 10px 14px;
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(5,5,7,0.72);
+  color: var(--gold);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.space-copy {
+  position: relative;
+}
+.space-logo {
+  width: 132px;
+  height: auto;
+  margin-bottom: 26px;
+  padding: 10px;
+  border: 1px solid rgba(197,163,87,0.22);
+  background: rgba(255,255,255,0.94);
+  box-shadow: 0 20px 55px rgba(0,0,0,0.25);
+}
+.space-copy h2 {
+  margin: 20px 0 24px;
+  max-width: 740px;
+}
+.space-copy h2 em {
+  color: var(--neon-hi);
+  font-style: italic;
+}
+.space-lede {
+  max-width: 650px;
+  color: rgba(255,255,255,0.7);
+  font-size: 18px;
+  line-height: 1.72;
+  margin: 0 0 30px;
+}
+.space-points {
+  display: grid;
+  gap: 14px;
+  margin: 0 0 32px;
+}
+.space-points div {
+  display: grid;
+  gap: 5px;
+  padding: 16px 0 16px 18px;
+  border-left: 1px solid rgba(197,163,87,0.54);
+}
+.space-points strong {
+  color: #fff;
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 400;
+}
+.space-points span {
+  color: rgba(255,255,255,0.58);
+  line-height: 1.55;
+}
 
 /* ============================================================
    SERVICES
@@ -1472,6 +1576,8 @@ button { font: inherit; cursor: pointer; }
   .about-grid { grid-template-columns: 1fr; gap: 40px; }
   .about-portrait { position: static; aspect-ratio: 4/3; }
   .about-creds { grid-template-columns: 1fr; }
+  .space-grid { grid-template-columns: 1fr; gap: 42px; }
+  .space-photo, .space-photo img { min-height: 520px; }
   .services-head { grid-template-columns: 1fr; gap: 24px; }
   .svc { grid-template-columns: 50px 1fr auto; gap: 16px; padding: 26px 0; }
   .svc-blurb { display: none; }
@@ -1483,6 +1589,12 @@ button { font: inherit; cursor: pointer; }
   .field-row { grid-template-columns: 1fr; gap: 0; }
 }
 @media (max-width: 600px) {
+  .brand-logo { width: 36px; height: 36px; }
+  .brand-text { font-size: 16px; }
+  .brand small { font-size: 8px; letter-spacing: 0.16em; }
+  .space { padding: 90px 0; }
+  .space-photo, .space-photo img { min-height: 460px; }
+  .space-logo { width: 112px; }
   .steps { grid-template-columns: 1fr; }
   .foot-grid { grid-template-columns: 1fr; }
   .modal-head, .modal-body { padding-left: 24px; padding-right: 24px; }

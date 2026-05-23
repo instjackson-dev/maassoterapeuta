@@ -139,7 +139,9 @@ function Nav({ onBook }) {
     <nav className={`nav ${scrolled ? "scrolled" : ""}`}>
       <div className="nav-inner">
         <a href="#top" className="brand">
-          <span className="brand-mark">M</span>
+          <span className="brand-logo" aria-hidden="true">
+            <img src="assets/logo-marcelo.png" alt="" />
+          </span>
           <span className="brand-text">
             Marcelo A. A. dos Santos
             <small>MASSOTERAPIA · CURITIBA/PR</small>
@@ -147,6 +149,7 @@ function Nav({ onBook }) {
         </a>
         <div className="nav-links">
           <a href="#sobre">Sobre</a>
+          <a href="#espaco">Espaço</a>
           <a href="#servicos">Serviços</a>
           <a href="#processo">Processo</a>
           <a href="#depoimentos">Depoimentos</a>
@@ -279,6 +282,52 @@ function About() {
       </div>
     </section>);
 
+}
+
+/* ============================================================
+   SPACE
+   ============================================================ */
+function Space() {
+  return (
+    <section className="space" id="espaco" data-screen-label="03 Espaço">
+      <div className="wrap">
+        <div className="space-grid">
+          <div className="space-photo">
+            <img src="assets/espaco-marcelo.jpg" alt="Sala de atendimento de massoterapia do Marcelo Santos em Curitiba" />
+            <div className="space-photo-badge">Ambiente reservado · Curitiba</div>
+          </div>
+          <div className="space-copy">
+            <img className="space-logo" src="assets/logo-marcelo.png" alt="Marcelo Massoterapia" />
+            <span className="eyebrow eyebrow-neon">O espaço</span>
+            <h2 className="h-display">
+              Um lugar simples,<br />
+              preparado para o corpo <em>baixar a guarda</em>.
+            </h2>
+            <p className="space-lede">
+              A sala do Marcelo não tenta parecer clínica fria nem spa de vitrine. É um espaço de trabalho real: reservado, iluminado, com maca, instrumentos à mão e tudo organizado para uma coisa só — entender o que o corpo está pedindo naquele dia.
+            </p>
+            <div className="space-points">
+              <div>
+                <strong>Maca pronta para avaliação</strong>
+                <span>Atendimento individual, sem pressa e com privacidade.</span>
+              </div>
+              <div>
+                <strong>Ferramentas visíveis</strong>
+                <span>Ventosaterapia, técnicas manuais, TENS e recursos escolhidos caso a caso.</span>
+              </div>
+              <div>
+                <strong>Luz natural e presença</strong>
+                <span>Um ambiente acolhedor para aliviar tensão, dor e excesso de rotina.</span>
+              </div>
+            </div>
+            <a className="btn btn-gold" href={whatsappUrl("Olá, Marcelo. Quero conhecer o espaço e agendar uma sessão.")} target="_blank" rel="noopener noreferrer">
+              Agendar no espaço <span className="arrow">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 }
 
 /* ============================================================
@@ -884,6 +933,7 @@ function App() {
       <Nav onBook={() => scrollToBook()} />
       <Hero onBook={() => scrollToBook()} />
       <About />
+      <Space />
       <Services onOpen={setOpenSvc} onBook={scrollToBook} />
       <Testimonials />
       <Process />
