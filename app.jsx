@@ -189,6 +189,13 @@ function Hero({ onBook }) {
                 Ver técnicas
               </a>
             </div>
+            <div className="hero-brand-card">
+              <img src="assets/logo-marcelo.png" alt="Marcelo Massoterapia" />
+              <div>
+                <strong>Desde 2012 cuidando de pessoas em Curitiba</strong>
+                <span>Ambiente reservado · atendimento individual · técnica ajustada ao seu caso</span>
+              </div>
+            </div>
           </div>
         </div>
         <div className="hero-side">
