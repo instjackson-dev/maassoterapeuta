@@ -196,6 +196,18 @@ function Hero({ onBook }) {
                 <span>Ambiente reservado · atendimento individual · técnica ajustada ao seu caso</span>
               </div>
             </div>
+            <div className="client-proof-stack" aria-label="Mais de 300 clientes atendidos">
+              <div className="client-avatars">
+                <img src="assets/client-avatar-01.jpg" alt="" />
+                <img src="assets/marcelo-pro.png" alt="" />
+                <img src="assets/espaco-marcelo.jpg" alt="" />
+                <img src="assets/logo-marcelo.png" alt="" />
+              </div>
+              <div className="client-proof-copy">
+                <strong>+300 Clientes Atendidos</strong>
+                <span>Histórias reais de cuidado, recuperação e alívio.</span>
+              </div>
+            </div>
           </div>
         </div>
         <div className="hero-side">

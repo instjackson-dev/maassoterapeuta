@@ -311,6 +311,49 @@ button { font: inherit; cursor: pointer; }
   font-size: 13px;
   line-height: 1.55;
 }
+.client-proof-stack {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  max-width: 560px;
+  margin-top: -6px;
+}
+.client-avatars {
+  display: flex;
+  align-items: center;
+  flex: none;
+}
+.client-avatars img {
+  width: 58px;
+  height: 58px;
+  margin-left: -14px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #0d0b0f;
+  box-shadow: 0 0 0 1px rgba(197,163,87,0.42), 0 14px 28px rgba(0,0,0,0.35);
+  background: #fff;
+}
+.client-avatars img:first-child { margin-left: 0; }
+.client-avatars img:last-child {
+  padding: 7px;
+  object-fit: contain;
+}
+.client-proof-copy {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+}
+.client-proof-copy strong {
+  color: #fff;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.client-proof-copy span {
+  color: rgba(255,255,255,0.54);
+  font-size: 13px;
+  line-height: 1.45;
+}
 
 .hero-side {
   display: grid;
@@ -1613,6 +1656,7 @@ button { font: inherit; cursor: pointer; }
   .hero-grid { grid-template-columns: 1fr; gap: 40px; padding: 140px 24px 60px; }
   .hero-side { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
   .hero-brand-card { max-width: 100%; }
+  .client-proof-stack { max-width: 100%; }
   .hero-foot-inner { flex-direction: column; align-items: flex-start; gap: 14px; }
   .float-whatsapp { right: 14px; bottom: 14px; min-width: 0; }
   .about-grid { grid-template-columns: 1fr; gap: 40px; }
@@ -1637,6 +1681,9 @@ button { font: inherit; cursor: pointer; }
   .hero-brand-card { align-items: flex-start; }
   .hero-brand-card img { width: 74px; height: 74px; }
   .hero-brand-card strong { font-size: 20px; }
+  .client-proof-stack { align-items: flex-start; gap: 14px; }
+  .client-avatars img { width: 50px; height: 50px; margin-left: -12px; border-width: 2px; }
+  .client-proof-copy strong { font-size: 12px; }
   .space { padding: 90px 0; }
   .space-photo, .space-photo img { min-height: 460px; }
   .space-logo { width: 112px; }
