@@ -199,6 +199,10 @@ function Hero({ onBook }) {
             <div className="client-proof-stack" aria-label="Mais de 300 clientes atendidos">
               <div className="client-avatars">
                 <img src="assets/client-avatar-01.jpg" alt="" />
+                <img src="assets/client-avatar-02.jpg" alt="" />
+                <img src="assets/client-avatar-03.jpg" alt="" />
+                <img src="assets/client-avatar-04.jpg" alt="" />
+                <img src="assets/client-avatar-05.jpg" alt="" />
                 <span className="client-count-badge">+300</span>
               </div>
               <div className="client-proof-copy">

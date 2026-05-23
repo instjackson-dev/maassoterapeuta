@@ -317,6 +317,7 @@ button { font: inherit; cursor: pointer; }
   gap: 18px;
   max-width: 560px;
   margin-top: -6px;
+  flex-wrap: wrap;
 }
 .client-avatars {
   display: flex;
@@ -327,7 +328,7 @@ button { font: inherit; cursor: pointer; }
 .client-count-badge {
   width: 58px;
   height: 58px;
-  margin-left: -14px;
+  margin-left: -16px;
   border-radius: 50%;
   border: 3px solid #0d0b0f;
   box-shadow: 0 0 0 1px rgba(197,163,87,0.42), 0 14px 28px rgba(0,0,0,0.35);
@@ -345,6 +346,7 @@ button { font: inherit; cursor: pointer; }
   font-size: 14px;
   font-weight: 800;
   letter-spacing: -0.02em;
+  z-index: 2;
 }
 .client-proof-copy {
   display: grid;
@@ -1691,7 +1693,7 @@ button { font: inherit; cursor: pointer; }
   .hero-brand-card strong { font-size: 20px; }
   .client-proof-stack { align-items: flex-start; gap: 14px; }
   .client-avatars img,
-  .client-count-badge { width: 50px; height: 50px; margin-left: -12px; border-width: 2px; }
+  .client-count-badge { width: 48px; height: 48px; margin-left: -13px; border-width: 2px; }
   .client-proof-copy strong { font-size: 12px; }
   .space { padding: 90px 0; }
   .space-photo, .space-photo img { min-height: 460px; }
