@@ -170,10 +170,7 @@ function Hero({ onBook }) {
       <div className="hero-grid">
         <div className="hero-left">
           <span className="eyebrow">MASSOTERAPIA EM CURITIBA</span>
-          <div className="hero-trust">
-            Atendido por atletas de alto rendimento, incluindo Cris Cyborg e competidores de MMA.
-          </div>
-          <h1 className="hero-headline" style={{ marginTop: 28 }}>
+          <h1 className="hero-headline">
             Alívio de <em>dores musculares</em><br />
             e tensão em <span className="neon-word">Curitiba</span>.
           </h1>
@@ -198,7 +195,15 @@ function Hero({ onBook }) {
           </div>
           <div className="hero-stat hero-proof">
             <span className="hero-stat-num">UFC</span>
-            <span className="hero-stat-label">depoimento real de Cris Cyborg e atletas de alto rendimento</span>
+            <span className="hero-stat-label">atendendo atletas de alto rendimento, incluindo Cris Cyborg</span>
+          </div>
+          <div className="hero-stat">
+            <span className="hero-stat-num">300<em style={{ color: "var(--gold)", fontStyle: "italic" }}>+</em></span>
+            <span className="hero-stat-label">sessões realizadas</span>
+          </div>
+          <div className="hero-stat">
+            <span className="hero-stat-num">300<em style={{ color: "var(--gold)", fontStyle: "italic" }}>+</em></span>
+            <span className="hero-stat-label">clientes atendidos</span>
           </div>
           <div className="hero-stat">
             <span className="hero-stat-num">06</span>

@@ -228,9 +228,9 @@ button { font: inherit; cursor: pointer; }
   flex: 1;
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
-  align-items: end;
+  align-items: center;
   gap: 64px;
-  padding: 180px 32px 80px;
+  padding: 150px 32px 80px;
   max-width: 1280px;
   margin: 0 auto;
   width: 100%;
@@ -262,20 +262,6 @@ button { font: inherit; cursor: pointer; }
   color: var(--neon-hi);
   font-style: italic;
 }
-.hero-trust {
-  display: inline-flex;
-  max-width: 620px;
-  margin-top: 22px;
-  padding: 10px 14px;
-  border: 1px solid rgba(197, 163, 87, 0.42);
-  background: rgba(197, 163, 87, 0.1);
-  color: var(--gold);
-  font-family: var(--mono);
-  font-size: 11px;
-  line-height: 1.5;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
 
 .hero-meta {
   margin-top: 28px;
@@ -290,8 +276,8 @@ button { font: inherit; cursor: pointer; }
 .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
 
 .hero-side {
-  padding-bottom: 12px;
-  display: flex; flex-direction: column; gap: 28px;
+  display: grid;
+  gap: 22px;
   align-items: flex-start;
 }
 .hero-stat {
@@ -304,12 +290,13 @@ button { font: inherit; cursor: pointer; }
 }
 .hero-stat-num {
   font-family: var(--serif);
-  font-size: 72px;
+  font-size: clamp(52px, 5vw, 72px);
   line-height: 1;
   font-weight: 300;
   font-variation-settings: "opsz" 144;
   letter-spacing: -0.04em;
   color: #fff;
+  min-width: 104px;
 }
 .hero-stat-label {
   font-size: 13px;
@@ -1479,7 +1466,7 @@ button { font: inherit; cursor: pointer; }
 @media (max-width: 980px) {
   .nav-links { display: none; }
   .hero-grid { grid-template-columns: 1fr; gap: 40px; padding: 140px 24px 60px; }
-  .hero-side { display: none; }
+  .hero-side { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
   .hero-foot-inner { flex-direction: column; align-items: flex-start; gap: 14px; }
   .float-whatsapp { right: 14px; bottom: 14px; min-width: 0; }
   .about-grid { grid-template-columns: 1fr; gap: 40px; }
