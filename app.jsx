@@ -1,5 +1,9 @@
 /* global React, ReactDOM */
 const { useState, useEffect, useRef } = React;
+const WHATSAPP_NUMBER = "5541991895496";
+const DEFAULT_WHATSAPP_MESSAGE = "Olá, Marcelo. Vim pelo site e quero agendar uma sessão de massoterapia em Curitiba.";
+const whatsappUrl = (message = DEFAULT_WHATSAPP_MESSAGE) =>
+  `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
 
 /* ============================================================
    DATA
@@ -165,20 +169,22 @@ function Hero({ onBook }) {
     <section className="hero" id="top" data-screen-label="01 Hero">
       <div className="hero-grid">
         <div className="hero-left">
-          <span className="eyebrow">MASSOTERAPIA</span>
+          <span className="eyebrow">MASSOTERAPIA EM CURITIBA</span>
+          <div className="hero-trust">
+            Atendido por atletas de alto rendimento, incluindo Cris Cyborg e competidores de MMA.
+          </div>
           <h1 className="hero-headline" style={{ marginTop: 28 }}>
-            Mãos que <em>escutam</em><br />
-            o que o <span className="neon-word">corpo</span><br />
-            já cansou de dizer.
+            Alívio de <em>dores musculares</em><br />
+            e tensão em <span className="neon-word">Curitiba</span>.
           </h1>
           <div className="hero-meta">
             <p className="hero-blurb">
-              Quinze anos de prática em técnicas corporais — auriculoterapia, ventosaterapia, massagem desportiva e terapêutica, TENS e New Seitai. Atendimento individual, adaptado a cada caso.
+              Massagem terapêutica, desportiva, ventosaterapia, TENS e New Seitai para quem sente dor, treina pesado ou precisa recuperar conforto no corpo. Atendimento individual, com 15+ anos de prática.
             </p>
             <div className="hero-ctas">
-              <button className="btn btn-gold" onClick={onBook}>
-                Agendar avaliação <span className="arrow">→</span>
-              </button>
+              <a className="btn btn-gold" href={whatsappUrl()} target="_blank" rel="noopener noreferrer">
+                Agendar pelo WhatsApp <span className="arrow">→</span>
+              </a>
               <a href="#servicos" className="btn btn-ghost-light">
                 Ver técnicas
               </a>
@@ -189,6 +195,10 @@ function Hero({ onBook }) {
           <div className="hero-stat">
             <span className="hero-stat-num">15<em style={{ color: "var(--gold)", fontStyle: "italic" }}>+</em></span>
             <span className="hero-stat-label">anos de prática em técnicas corporais e quiropraxia suave</span>
+          </div>
+          <div className="hero-stat hero-proof">
+            <span className="hero-stat-num">UFC</span>
+            <span className="hero-stat-label">depoimento real de Cris Cyborg e atletas de alto rendimento</span>
           </div>
           <div className="hero-stat">
             <span className="hero-stat-num">06</span>
@@ -460,11 +470,16 @@ function Testimonials() {
         <div className="testi-head">
           <div>
             <span className="eyebrow eyebrow-neon">Quem confia</span>
-            <h2 className="h-display">Vozes de quem<br/>treina <em>no limite</em>.</h2>
+            <h2 className="h-display">Depoimentos reais de<br/>quem confia no <em>trabalho</em>.</h2>
           </div>
           <p>
-            Atletas de alto rendimento — UFC, Jungle Fight, paracanoagem — passam pelas mãos do Marcelo entre temporadas, lutas e provas. Os depoimentos abaixo vêm direto do Instagram oficial deles.
+            Cris Cyborg, atletas de MMA e paracanoagem aparecem em depoimentos públicos no Instagram. A mesma avaliação individual atende também quem busca alívio de dor, tensão e estresse no dia a dia.
           </p>
+        </div>
+        <div className="testi-proof-strip">
+          <span>Cris Cyborg · Campeã mundial</span>
+          <span>Mamute Five · MMA</span>
+          <span>Melquias · Paracanoagem</span>
         </div>
 
         <div className="testi-stage">
@@ -543,6 +558,15 @@ function Testimonials() {
               disabled={active === TESTIMONIALS.length - 1}
               aria-label="Próximo"
             >→</button>
+          </div>
+          <div className="testi-cta">
+            <div>
+              <strong>Quer atendimento com a mesma atenção individual?</strong>
+              <span>Envie uma mensagem e conte onde dói ou qual é o seu objetivo.</span>
+            </div>
+            <a className="btn btn-gold" href={whatsappUrl("Olá, Marcelo. Vi os depoimentos no site e quero agendar minha sessão.")} target="_blank" rel="noopener noreferrer">
+              Agendar minha sessão <span className="arrow">→</span>
+            </a>
           </div>
         </div>
       </div>
@@ -630,6 +654,17 @@ function Booking({ initialSvc, clearInitial }) {
   const update = (k) => (e) => setForm({ ...form, [k]: e.target.value });
   const submit = (e) => {
     e.preventDefault();
+    const service = SERVICES.find((s) => s.id === selected);
+    const message = [
+      "Olá, Marcelo. Vim pelo site e quero agendar uma sessão.",
+      form.name ? `Nome: ${form.name}` : "",
+      form.whatsapp ? `Meu WhatsApp: ${form.whatsapp}` : "",
+      service ? `Técnica de interesse: ${service.name}` : "",
+      form.day ? `Melhor dia: ${form.day}` : "",
+      form.time ? `Melhor horário: ${form.time}` : "",
+      form.goal ? `Objetivo/incômodo: ${form.goal}` : ""
+    ].filter(Boolean).join("\n");
+    window.open(whatsappUrl(message), "_blank", "noopener,noreferrer");
     setSent(true);
   };
 
@@ -645,8 +680,11 @@ function Booking({ initialSvc, clearInitial }) {
               o caminho.
             </h2>
             <p>
-              Você manda dia, horário preferidos e o que tem incomodado. O Marcelo retorna em até 24 horas com a indicação da técnica e a confirmação da agenda.
+              Você manda dia, horário preferidos e o que tem incomodado. O Marcelo responde pelo WhatsApp com a indicação da técnica e a confirmação da agenda.
             </p>
+            <a className="btn btn-gold book-whatsapp" href={whatsappUrl()} target="_blank" rel="noopener noreferrer">
+              Agende agora — resposta pelo WhatsApp <span className="arrow">→</span>
+            </a>
 
             <dl className="contact-list">
               <div className="contact-row">
@@ -679,7 +717,7 @@ function Booking({ initialSvc, clearInitial }) {
                 </div>
                 <h4>Mensagem recebida</h4>
                 <p>
-                  Obrigado, {form.name || "tudo bem"}. Sua solicitação chegou ao Marcelo. Você recebe retorno em até 24 horas no WhatsApp informado.
+                  Obrigado, {form.name || "tudo bem"}. Abrimos o WhatsApp com sua solicitação pronta para enviar ao Marcelo.
                 </p>
                 <button
                 className="btn btn-ghost-light"
@@ -809,6 +847,20 @@ function Foot() {
 
 }
 
+function FloatingWhatsApp() {
+  return (
+    <a
+      className="float-whatsapp"
+      href={whatsappUrl("Olá, Marcelo. Vim pelo site e quero agendar uma avaliação.")}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Agendar pelo WhatsApp">
+      <span>WhatsApp</span>
+      <strong>Agende agora</strong>
+    </a>
+  );
+}
+
 /* ============================================================
    APP
    ============================================================ */
@@ -834,6 +886,7 @@ function App() {
       <Booking initialSvc={bookingSvc} clearInitial={() => setBookingSvc("")} />
       <Disclaimer />
       <Foot />
+      <FloatingWhatsApp />
       {openSvc && <ServiceModal svc={openSvc} onClose={() => setOpenSvc(null)} onBook={scrollToBook} />}
     </>);
 
